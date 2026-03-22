@@ -43,15 +43,15 @@ body {
   position: relative;
   width: 100%;
   max-width: 480px;
+  height: 100px;   /* ← 高さを決めるのはココ！ */
   margin: 0 auto;
-  text-align: center;
+  overflow: hidden; /* ← 枠からはみ出さない */
 }
 
 .message-bg {
   width: 100%;
-  height: auto;
-  max-height: 100px;   /* ← ここで縮小を制御 */
-  object-fit: contain;
+  height: 100%;
+  object-fit: contain;  /* ← 縦横比を保って枠に収まる */
   display: block;
 }
 
