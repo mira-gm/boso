@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>房総入府</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================
+     ① タイトル画面
+============================= -->
+<div id="title-screen" class="screen">
+  <div class="title-box">
+    <h1>房総入府</h1>
+    <p class="tap-start">タップしてゲームスタート</p>
+  </div>
+</div>
+
+
+<!-- ============================
+     ② 城主選択画面
+============================= -->
+<div id="select-screen" class="screen" style="display:none;">
+  <h2 class="screen-title">城主を選択</h2>
+
+  <div class="map-container">
+    <img id="select-map" src="data/map.png" class="map-img">
+    <div id="select-layer" class="castle-layer"></div>
+  </div>
+
+  <button id="start-game-btn" disabled class="main-btn">
+    ゲーム開始
+  </button>
+</div>
+
+
+<!-- ============================
+     ③ メイン画面（コマンド画面）
+============================= -->
+<div id="main-screen" class="screen" style="display:none;">
+
+  <div class="map-container">
+    <img id="main-map" src="data/map.png" class="map-img zoom-map">
+    <div id="main-layer" class="castle-layer"></div>
+  </div>
+
+  <div id="status-box">
+    <p id="year-text"></p>
+    <p>金：<span id="p-gold"></span></p>
+    <p>石高：<span id="p-rice"></span></p>
+    <p>商業：<span id="p-commerce"></span></p>
+    <p>民忠：<span id="p-loyalty"></span></p>
+    <p>人口：<span id="p-pop"></span></p>
+    <p>築米：<span id="p-prosperity"></span></p>
+  </div>
+
+  <div id="msg-box">
+    <p id="msg-text">1590年1月。房総入府したばかりだ。</p>
+  </div>
+
+  <div id="command-box">
+    <button class="cmd" data-act="開墾">開墾</button>
+    <button class="cmd" data-act="投資">投資</button>
+    <button class="cmd" data-act="施し">施し</button>
+    <button class="cmd" data-act="交流">交流</button>
+    <button class="cmd" data-act="寄進">寄進</button>
+  </div>
+
+</div>
+
+
+<!-- ============================
+     ④ 交流画面（地図画面）
+============================= -->
+<div id="diplomacy-screen" class="screen" style="display:none;">
+  <h2 class="screen-title">交流する城を選択</h2>
+
+  <div class="map-container">
+    <img id="diplomacy-map" src="data/map.png" class="map-img">
+    <div id="diplomacy-layer" class="castle-layer"></div>
+  </div>
+
+  <button class="main-btn" onclick="showScreen('main-screen')">
+    戻る
+  </button>
+</div>
+
+
+<!-- ============================
+     ⑤ 城主確認ポップアップ
+============================= -->
+<div id="confirm-popup" class="popup" style="display:none;">
+  <div class="popup-content">
+    <h2 id="popup-castle-name"></h2>
+    <img id="popup-general-img" class="popup-img">
+    <p id="popup-general-name"></p>
+
+    <p id="popup-message"></p>
+
+    <div class="popup-buttons">
+      <button id="popup-yes" class="popup-btn">はい</button>
+      <button id="popup-no" class="popup-btn">いいえ</button>
+    </div>
+  </div>
+</div>
+
+
+<script src="main.js"></script>
+</body>
+</html>

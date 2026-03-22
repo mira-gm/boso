@@ -1,0 +1,241 @@
+/* ================================
+   全体レイアウト
+================================ */
+body {
+  margin: 0;
+  padding: 0;
+  background: #f5f2e9;
+  font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.screen {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ================================
+   タイトル画面
+================================ */
+#title-screen {
+  background: #f5f2e9;
+  justify-content: center;
+}
+
+.title-box {
+  text-align: center;
+}
+
+.title-box h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  letter-spacing: 4px;
+}
+
+.tap-start {
+  font-size: 20px;
+  opacity: 0.7;
+}
+
+/* ================================
+   共通：地図コンテナ
+================================ */
+.map-container {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 200px);
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ★ 修正：横基準で縮小 */
+.map-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ズームは main-map のみに適用 */
+#main-map {
+  transform-origin: top left;
+}
+
+/* ================================
+   城アイコンレイヤー
+================================ */
+.castle-layer {
+  position: absolute;
+  top: 0;
+
+  pointer-events: none;
+
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.castle-icon {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* ================================
+   城主選択画面
+================================ */
+.screen-title {
+  margin: 10px 0;
+  font-size: 24px;
+}
+
+#start-game-btn {
+  margin-top: 10px;
+  padding: 12px 24px;
+  font-size: 20px;
+  background: #cfa86e;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  opacity: 0.6;
+}
+
+#start-game-btn:enabled {
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* ================================
+   メイン画面（コマンド画面）
+================================ */
+#status-box {
+  width: 90%;
+  background: rgba(255,255,255,0.8);
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+#msg-box {
+  width: 90%;
+  background: rgba(255,255,255,0.9);
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 5px;
+  font-size: 18px;
+}
+
+#command-box {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: auto;
+  padding: 10px 0;
+  background: #eee2c6;
+}
+
+.cmd {
+  padding: 10px 14px;
+  font-size: 16px;
+  background: #cfa86e;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ================================
+   交流画面
+================================ */
+.main-btn {
+  margin: 10px;
+  padding: 12px 24px;
+  font-size: 20px;
+  background: #cfa86e;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ================================
+   ポップアップ（新規追加）
+================================ */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  width: 80%;
+  max-width: 350px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.popup-img {
+  width: 120px;
+  height: auto;
+  margin: 10px 0;
+}
+
+.popup-buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.popup-btn {
+  padding: 10px 20px;
+  background: #cfa86e;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* ================================
+   スマホ最適化
+================================ */
+@media (max-width: 600px) {
+  .title-box h1 {
+    font-size: 36px;
+  }
+
+  .castle-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  #command-box {
+    flex-wrap: wrap;
+  }
+
+  .cmd {
+    margin: 4px;
+    flex: 1 1 40%;
+  }
+}
