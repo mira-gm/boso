@@ -50,6 +50,8 @@ body {
 .message-bg {
   width: 100%;
   height: auto;
+  max-height: 100px;   /* ← ここで縮小を制御 */
+  object-fit: contain;
   display: block;
 }
 
