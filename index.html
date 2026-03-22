@@ -22,16 +22,18 @@
      ② 城主選択画面
 ============================= -->
 <div id="select-screen" class="screen" style="display:none;">
-  <h2 class="screen-title">城主を選択</h2>
+
+  <!-- ★ 追加：メッセージボックス -->
+  <div class="message-box">
+    <img src="data/waku_massage.png" class="message-bg">
+    <div class="message-text">プレイする城主をえらんでください</div>
+  </div>
 
   <div class="map-container">
     <img id="select-map" src="data/map.png" class="map-img">
     <div id="select-layer" class="castle-layer"></div>
   </div>
 
-  <button id="start-game-btn" disabled class="main-btn">
-    ゲーム開始
-  </button>
 </div>
 
 

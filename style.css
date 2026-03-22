@@ -37,6 +37,35 @@ body {
 }
 
 /* ================================
+   メッセージボックス（城主選択画面）
+================================ */
+.message-box {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.message-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.message-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 0 4px #fff;
+}
+
+/* ================================
    地図コンテナ（画像に合わせて伸びる）
 ================================ */
 .map-container {
