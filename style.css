@@ -1,6 +1,10 @@
 /* ================================
-   全体レイアウト
+   全体レイアウト（スマホ幅固定）
 ================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -8,11 +12,15 @@ body {
   font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
   user-select: none;
   touch-action: manipulation;
+  overflow-x: hidden;
 }
 
+/* 画面は最大幅480pxに固定して中央寄せ */
 .screen {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  height: 100dvh;
   overflow: hidden;
   position: relative;
   display: flex;
@@ -24,44 +32,24 @@ body {
    タイトル画面
 ================================ */
 #title-screen {
-  background: #f5f2e9;
   justify-content: center;
-}
-
-.title-box {
   text-align: center;
 }
 
-.title-box h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-  letter-spacing: 4px;
-}
-
-.tap-start {
-  font-size: 20px;
-  opacity: 0.7;
-}
-
 /* ================================
-   共通：地図コンテナ
+   地図コンテナ（画像に合わせて伸びる）
 ================================ */
 .map-container {
   position: relative;
   width: 100%;
-  height: calc(100vh - 200px);
   overflow: hidden;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-/* ★ 修正：横基準で縮小 */
+/* 地図画像（横基準で縮小） */
 .map-img {
   width: 100%;
   height: auto;
-  object-fit: contain;
+  display: block;
 }
 
 /* ズームは main-map のみに適用 */
@@ -70,16 +58,13 @@ body {
 }
 
 /* ================================
-   城アイコンレイヤー
+   城アイコンレイヤー（画像に完全追従）
 ================================ */
 .castle-layer {
   position: absolute;
   top: 0;
-
+  left: 0;
   pointer-events: none;
-
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .castle-icon {
@@ -170,16 +155,16 @@ body {
 }
 
 /* ================================
-   ポップアップ（新規追加）
+   ポップアップ
 ================================ */
 .popup {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100dvh;
   background: rgba(0,0,0,0.5);
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   z-index: 9999;
@@ -188,7 +173,7 @@ body {
 .popup-content {
   background: #fff;
   padding: 20px;
-  width: 80%;
+  width: 85%;
   max-width: 350px;
   text-align: center;
   border-radius: 10px;
@@ -221,21 +206,8 @@ body {
    スマホ最適化
 ================================ */
 @media (max-width: 600px) {
-  .title-box h1 {
-    font-size: 36px;
-  }
-
   .castle-icon {
     width: 28px;
     height: 28px;
-  }
-
-  #command-box {
-    flex-wrap: wrap;
-  }
-
-  .cmd {
-    margin: 4px;
-    flex: 1 1 40%;
   }
 }
